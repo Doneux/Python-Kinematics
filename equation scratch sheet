@@ -1,0 +1,20 @@
+psuedocode file, do not run.
+
+Primary kinematic equations we will work with:
+x represents position
+displacement d represents xi - xf (initial - final)
+t represents time
+v = d/t #velocity
+a = v/t #acceleration
+instantenous acceleration and velocity will be handled later
+let r represent a radius about which two dimensonal motion occurs, then:
+ac = v^2/r #centripetal acceleration
+
+let m represent the mass of an object in a free-body diagram, and let f represent the summation of force vectors acting upon that object (Fnet), then:
+f = ma #force
+let g represent earth's gravitational acceleration constant, 9.8m/s^2, then
+n = mg #normal force
+let o represent some angle upon which an object rests, then
+n = mg*cos(o) #normal force again
+let k represent a spring constant, and in this case, x represent the displacement of the spring from it's position at rest, then
+f = -kx # spring force
