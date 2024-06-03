@@ -123,8 +123,8 @@ while restart.lower() == 'y':
                 g = 9.8
                 # Arccos is used here, and it's a finnicky function, so we use a try-except case to catch errors.
                 try:
-                    o = math.acos(n / (m * g))
-                    print(f"Angle (o) in degrees = {o * 180 / math.pi}")
+                    o = math.acos((n / round(m * g, 3))) #Here we use the acos function, as well as the rounding function, to account for floating-point imprecision.
+                    print(f"Angle (o) in degrees = {o * 180 / math.pi} (approximately)")
                 except:
                     print(f"Error in calculation: arccos({n} / ({m} * {g})) Please check variables.")
 
