@@ -7,7 +7,9 @@ Python Kinematics is a physics calculator developed by Seth Doneux with the goal
 The project is a solo endeavor by Seth Doneux.
 
 Index:
+
 kinematics.py - A user-ready, barebones version of the program. Run with python3. Choose equations from available selections, choose unknown to solve for, and enter knowns.
+
 vectors.py - Borrowed vector solver from my custom-written mathematics library (https://github.com/Doneux/Seth-s-Mathematics-Library) integrated into this calculator for ease of access.
 
 More equations will be implemented soon.
