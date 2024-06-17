@@ -18,3 +18,53 @@ let o represent some angle upon which an object rests, then
 n = mg*cos(o) #normal force again
 let k represent a spring constant, and in this case, x represent the displacement of the spring from it's position at rest, then
 f = -kx # spring force
+
+-----------------------------------------------------------------------------------------
+
+UI solver system notes/scratch sheet:
+
+-- variables to input:
+-displacement:
+  Initial displacement: Xi
+  Final displacement: Xf
+  Change in Displacement: dX = Xf - Xi
+-time:
+  Initial time: Ti
+  Final time: Tf
+  Change in time: dT = Tf - Ti
+-Velocity:
+  Initial Velocity: Vi
+  Final Velocity: Vf
+  Change in velocity: dV = Vi - Vf
+  Constant Velocity: V = dX/dT
+-Acceleration:
+  Initial Acceleration: Ai
+  Final Acceleration: Af
+  Change in acceleration: dA = Af - Ai
+  Constant Acceleration: A = dV/dT
+-Mass
+  Mass of object: M
+-Force:
+  Force: F = M * A
+
+--Possible ways to solve for each:
+-solve_acceleration:
+  A = dV/dT
+  A = F/M
+-solve_mass:
+  M = F / A
+-solve_velocity:
+  dV = A * dT
+  Vf = dV + Vi
+  Vi = dV - Vf
+-solve_force:
+  F = MA
+-solve_displacement:
+  dX = V * dT
+  Xf = dX + Xi
+  Xi = dX - Xf
+-solve_time:
+  dT = dX / V
+  Tf = dT + Ti
+  Ti = dT - Tf
+--continuously run solution functions until no variables have changed
