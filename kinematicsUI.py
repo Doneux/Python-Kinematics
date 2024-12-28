@@ -86,6 +86,7 @@ def solve(Xi, Xf, dX, Ti, Tf, dT, Vi, Vf, dV, V, Ai, Af, dA, A, M, F):
     Tf = dT + Ti
     Ti = dT - Tf
     #continuously run solution functions until no variables have changed
+    
     for i in range(len(valuelist)):
         if valuelist[i] != newvaluelist[i]:
             solve(Xi, Xf, dX, Ti, Tf, dT, Vi, Vf, dV, V, Ai, Af, dA, A, M, F)
@@ -258,12 +259,22 @@ def get_knowns():
     return Xi, Xf, dX, Ti, Tf, dT, Vi, Vf, dV, V, Ai, Af, dA, A, M, F
 
 #solve equations
+soln_labels = [] #we want to keep track of these to delete them later
 def solve_equations():
+    global soln_labels
+
+    #clear the screen if it's full
+    for widget in soln_labels:
+        widget.destroy()
+    soln_labels.clear()
+
     Xi, Xf, dX, Ti, Tf, dT, Vi, Vf, dV, V, Ai, Af, dA, A, M, F = get_knowns()
+    
     # solve_force:
     F = M * A
     forcefinal = Label(text=f"F = MA = {F}")
-    forcefinal.grid(columnspan= 9)
+    forcefinal.grid(columnspan=9)
+    soln_labels.append(forcefinal)
     
     # solve_acceleration:
     dA = Af - Ai
@@ -279,13 +290,17 @@ def solve_equations():
     Ai = dA - Af
     
     accel1 = Label(text=f"A = dV/dT = {A}")
-    accel1.grid(columnspan= 9)
+    accel1.grid(columnspan=9)
+    soln_labels.append(accel1)
     accel2 = Label(text=f"A = F/M = {A}")
-    accel2.grid(columnspan= 9)
+    accel2.grid(columnspan=9)
+    soln_labels.append(accel2)
     accel3 = Label(text=f"Af = dA + Ai = {Af}")
-    accel3.grid(columnspan= 9)
+    accel3.grid(columnspan=9)
+    soln_labels.append(accel3)
     accel4 = Label(text=f"Ai = dA - Af = {Ai}")
-    accel4.grid(columnspan= 9)
+    accel4.grid(columnspan=9)
+    soln_labels.append(accel4)
     
     # solve_mass:
     try:
@@ -293,7 +308,8 @@ def solve_equations():
     except:
         pass
     massfinal = Label(text=f"M = F/A = {M}")
-    massfinal.grid(columnspan= 9)
+    massfinal.grid(columnspan=9)
+    soln_labels.append(massfinal)
     
     # solve_velocity:
     dV = Vf - Vi
@@ -305,15 +321,20 @@ def solve_equations():
     except:
         pass
     velocity1 = Label(text=f"dV = Vf - Vi = {dV}")
-    velocity1.grid(columnspan= 9)
+    velocity1.grid(columnspan=9)
+    soln_labels.append(velocity1)
     velocity2 = Label(text=f"dV = A * dT = {dV}")
-    velocity2.grid(columnspan= 9)
+    velocity2.grid(columnspan=9)
+    soln_labels.append(velocity2)
     velocity3 = Label(text=f"Vf = dV + Vi = {Vf}")
-    velocity3.grid(columnspan= 9)
+    velocity3.grid(columnspan=9)
+    soln_labels.append(velocity3)
     velocity4 = Label(text=f"Vi = dV - Vf = {Vi}")
-    velocity4.grid(columnspan= 9)
+    velocity4.grid(columnspan=9)
+    soln_labels.append(velocity4)
     velocity5 = Label(text=f"V = dX / dT = {V}")
-    velocity5.grid(columnspan= 9)
+    velocity5.grid(columnspan=9)
+    soln_labels.append(velocity5)
     
     # solve_displacement:
     dX = Xf - Xi
@@ -321,13 +342,17 @@ def solve_equations():
     Xf = dX + Xi
     Xi = dX - Xf
     displacement1 = Label(text=f"dX = Xf - Xi = {dX}")
-    displacement1.grid(columnspan= 9)
+    displacement1.grid(columnspan=9)
+    soln_labels.append(displacement1)
     displacement2 = Label(text=f"dX = V * dT = {dX}")
-    displacement2.grid(columnspan= 9)
+    displacement2.grid(columnspan=9)
+    soln_labels.append(displacement2)
     displacement3 = Label(text=f"Xf = dX + Xi = {Xf}")
-    displacement3.grid(columnspan= 9)
+    displacement3.grid(columnspan=9)
+    soln_labels.append(displacement3)
     displacement4 = Label(text=f"Xi = dX - Xf = {Xi}")
-    displacement4.grid(columnspan= 9)
+    displacement4.grid(columnspan=9)
+    soln_labels.append(displacement4)
     
     # solve_time:
     dT = Tf - Ti
@@ -338,13 +363,17 @@ def solve_equations():
     Tf = dT + Ti
     Ti = dT - Tf
     time1 = Label(text=f"dT = Tf - Ti = {dT}")
-    time1.grid(columnspan= 9)
+    time1.grid(columnspan=9)
+    soln_labels.append(time1)
     time2 = Label(text=f"dT = dX / V = {dT}")
-    time2.grid(columnspan= 9)
+    time2.grid(columnspan=9)
+    soln_labels.append(time2)
     time3 = Label(text=f"Tf = dT + Ti = {Tf}")
-    time3.grid(columnspan= 9)
+    time3.grid(columnspan=9)
+    soln_labels.append(time3)
     time4 = Label(text=f"Ti = dT - Tf = {Ti}")
-    time4.grid(columnspan= 9)
+    time4.grid(columnspan=9)
+    soln_labels.append(time4)
 
 
 solvetitle = Label(text="Solve Kinematic Equations")
