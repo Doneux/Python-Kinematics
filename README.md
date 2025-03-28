@@ -12,3 +12,8 @@ kinematicsUI.py - A UI-based calculator made in tkinter, allowing users to enter
 kinematics.py - A user-ready, barebones version of the program. Run with python3. Choose equations from available selections, choose unknown to solve for, and enter knowns.
 
 vectors.py - Borrowed vector solver from my custom-written mathematics library (https://github.com/Doneux/Seth-s-Mathematics-Library) integrated into this calculator for ease of access.
+
+Setup tutorial:
+- Install source code, place in a directory.
+- If python is not installed, install python 3.
+- Run the included .bat file.
